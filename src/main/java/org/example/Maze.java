@@ -16,7 +16,9 @@ public class Maze {
         if (MazeType.equals("perfect")){
             SimplePerfectMazeGenerator maze = new SimplePerfectMazeGenerator();
             maze.MazeGenerator(SizeX, SizeY);
-        }else{
+        }else if (MazeType.equals("imperfect")){
+            System.out.println("Erreur : La Génération de labyrinthine imparfait n'est pas encore disponible.");}
+        else{
             System.out.println("Erreur : Veuillez fournir un type de labyrinthe et une méthode de génération valides.");
             System.out.println("Utilisation : java -jar MazeRunner.jar [largeur] [hauteur] [perfect/imperfect]");
         }
