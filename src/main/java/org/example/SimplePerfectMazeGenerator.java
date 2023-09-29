@@ -20,16 +20,18 @@ public class SimplePerfectMazeGenerator {
 
             //to get the cell number in the list (board) we use this formula : (i * SizeX) + j
             for (int j = 0; j < SizeY; j++) {
+                //TOP LINE
                 int Coord = (i * SizeX) + j;
                 // if top path is open
                 if (!board.get(Coord).status[0]){
                     line1.append("#.#");
-                } else if (Coord == 0) {
+                } else if (Coord == 0 ) {
                     line1.append("#.#");
                 } else{
                     line1.append("###");
                 }
 
+                //MIDDLE LINE
                 if (!board.get(Coord).status[1] && board.get(Coord).status[3]){
                     // if right path is open and left is closed
                     line2.append("#..");
@@ -39,10 +41,14 @@ public class SimplePerfectMazeGenerator {
                 } else if (!board.get(Coord).status[1] && !board.get(Coord).status[3]){
                     // if right both open
                     line2.append("...");
-                } else{
+                } else if( board.get(Coord).status[0] && board.get(Coord).status[1] && board.get(Coord).status[2] && board.get(Coord).status[3]){
                     // if both closed
+                    line2.append("###");
+                }   else{
                     line2.append("#.#");
                 }
+
+                //BOTTOM LINE
                 if (!board.get(Coord).status[2]){
                     line3.append("#.#");
                 }else{
